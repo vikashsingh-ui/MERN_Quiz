@@ -14,12 +14,12 @@ const LoginPage = () => {
   const API_BASE_URL = "https://vikash-quiz-app.onrender.com";
 
 
-  const googleSignIn = useGoogleLogin({
-    onSuccess: (res) => {
-      console.log("res", res);
-      alert("Login successfull");
-    },
-  });
+  // const googleSignIn = useGoogleLogin({
+  //   onSuccess: (res) => {
+  //     console.log("res", res);
+  //     alert("Login successfull");
+  //   },
+  // });
 
   const handleEmailChange = (e) => {
     setEmail(e);
@@ -211,7 +211,7 @@ const LoginPage = () => {
             </div>
             <div
               className="common-pointer bg-white-A700 flex flex-row font-inter gap-16 items-center justify-start mt-6 p-[18px] rounded-[30px] shadow-bs w-full"
-              onClick={() => googleSignIn()}
+              // onClick={() => googleSignIn()}
             >
               <Img
                 className="h-6 ml-6 w-6"
