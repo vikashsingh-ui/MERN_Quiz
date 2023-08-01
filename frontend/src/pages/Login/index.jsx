@@ -74,8 +74,10 @@ const LoginPage = () => {
       setLoading(false);
     }
   };
-
-
+  const handleClick = async()=>{
+    // console.log('first')
+     navigate("/signup")
+   }
 
   return (
     <>
@@ -128,7 +130,8 @@ const LoginPage = () => {
           <a
             className="md:ml-[0] ml-[9px] md:mt-0 mt-[72px] text-base text-blue_gray-400"
             size="txtPoppinsSemiBold16"
-            href="/signup"
+            onClick={handleClick}
+            
           >
             Back/SignUp 
           </a>
