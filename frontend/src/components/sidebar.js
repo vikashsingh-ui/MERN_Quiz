@@ -6,7 +6,8 @@ import { toast } from 'react-toastify';
 const Sidebar = () => {
   const navigate = useNavigate();
 
-  const API_BASE_URL = 'http://localhost:5000';
+  const API_BASE_URL = "https://vikash-quiz-app.onrender.com";
+
 
   const handleLogout = async () => {
     try {

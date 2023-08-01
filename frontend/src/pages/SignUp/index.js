@@ -12,7 +12,7 @@ const SignUpPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const API_BASE_URL = 'http://localhost:5000';
+  const API_BASE_URL = "https://vikash-quiz-app.onrender.com";
  
   const handleEmailChange = (e) => {
     setEmail(e);
@@ -49,25 +49,32 @@ const SignUpPage = () => {
         return;
       }
 
-      const response = await fetch(`${API_BASE_URL}/register`, {
-       method: 'POST',
-       headers: {
-      'Content-Type': 'application/json',
-       },
-        body: JSON.stringify({ email,phone, password, conformPassword, }),
-      });
+    
+          const response = await fetch(`${API_BASE_URL}/register`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, phone, password, conformPassword }),
+          });
 
-      if (response.ok) {
-        setError('');
-         console.log(response.data); // This will log the response data from the server
-         toast('SignUp successful!')
-        navigate("/login")
-
-      }else {
-        const errorData = await response.json();
-        setError(errorData.message || 'An error occurred during login.');
-        return;
-      }
+          if (response.ok) {
+            // If the response is successful, parse the JSON data
+            const responseData = await response.json();
+            console.log(responseData); // This will log the response data from the server
+            toast('SignUp successful!');
+            navigate("/login");
+          } else {
+            // If the response status is an error (e.g., 404, 500), handle the error
+            try {
+              const errorData = await response.json();
+              setError(errorData.message || 'An error occurred during login.');
+            } catch (error) {
+              // If the response is not in JSON format, handle the error accordingly
+              setError('An error occurred during login.');
+            }
+            return;
+          }
 
       } catch (error) {
       console.error('Error in registrayion', error);

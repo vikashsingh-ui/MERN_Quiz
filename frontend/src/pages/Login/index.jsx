@@ -11,7 +11,8 @@ const LoginPage = () => {
   const [error, setError] = useState(null);
   const [user, setUser] = useState('');
   const navigate = useNavigate();
-  const API_BASE_URL = 'http://localhost:5000';
+  const API_BASE_URL = "https://vikash-quiz-app.onrender.com";
+
 
   const googleSignIn = useGoogleLogin({
     onSuccess: (res) => {

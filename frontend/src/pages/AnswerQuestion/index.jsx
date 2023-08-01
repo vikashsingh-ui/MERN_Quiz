@@ -26,7 +26,8 @@ const AnswerQuestionPage = () => {
     userName: "vikash singh",
     category: " "
   };;
-  const API_BASE_URL = 'http://localhost:5000';
+  const API_BASE_URL = "https://vikash-quiz-app.onrender.com";
+
   const [remainingTime, setRemainingTime] = useState(15 * 60); // 15 minutes (in seconds)
   const [showFinalSubmissionPopup, setShowFinalSubmissionPopup] = useState(
     false
